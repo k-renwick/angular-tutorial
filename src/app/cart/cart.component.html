@@ -4,9 +4,12 @@
     <a routerLink="/shipping">Shipping Prices</a>
 </p>
 
-<div class="cart-item" *ngFor="let item of items">
+<div class="cart-item" *ngFor="let item of items; let i = index">
     <span>{{ item.name }}</span>
     <span>{{ item.price | currency }}</span>
+    <button (click)="removeFromCart(i)">
+        <em class="material-icons">delete</em>
+    </button>
 </div>
 
 <form
