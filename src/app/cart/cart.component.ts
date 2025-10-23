@@ -29,4 +29,12 @@ export class CartComponent {
   removeFromCart(itemIndex: number) {
     this.items = this.cartService.removeFromCart(itemIndex);
   }
+
+  getTotalCost() {
+    let totalCost = 0;
+    this.items.forEach(item => {
+      totalCost+=item.price;
+    });
+    return totalCost;
+  }
 }
