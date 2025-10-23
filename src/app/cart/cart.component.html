@@ -10,7 +10,7 @@
 
 <div>
     <p>Subtotal: {{ getSubtotal() | currency }}</p>
-    <p><a routerLink="/shipping">Shipping Prices: {{ shippingOption.price | currency }}</a></p>
+    <p><a routerLink="/shipping">Shipping Method:</a> {{ shippingOption.type }} {{shippingOption.price | currency }}</p>
     <p>Tax: {{ (getSubtotal() + shippingOption.price)*.13 | currency }}</p>
     <h3>Total: {{ (getSubtotal() + shippingOption.price)*1.13 | currency }}</h3>
 </div>
