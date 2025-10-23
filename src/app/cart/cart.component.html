@@ -1,9 +1,5 @@
 <h3>Cart</h3>
 
-<p>
-    <a routerLink="/shipping">Shipping Prices</a>
-</p>
-
 <div class="cart-item" *ngFor="let item of items; let i = index">
     <span>{{ item.name }}</span>
     <span>{{ item.price | currency }}</span>
@@ -13,10 +9,12 @@
 </div>
 
 <div>
-    <p>Subtotal: {{ getTotalCost() | currency }}</p>
-    <p>Tax: {{ getTotalCost()*.13 | currency }}</p>
-    <h3>Total: {{ getTotalCost()*1.13 | currency }}</h3>
+    <p>Subtotal: {{ getSubtotal() | currency }}</p>
+    <p><a routerLink="/shipping">Shipping Prices: {{ shippingOption.price | currency }}</a></p>
+    <p>Tax: {{ (getSubtotal() + shippingOption.price)*.13 | currency }}</p>
+    <h3>Total: {{ (getSubtotal() + shippingOption.price)*1.13 | currency }}</h3>
 </div>
+
 <form
     [formGroup]="checkoutForm"
     (ngSubmit)="onSubmit()">

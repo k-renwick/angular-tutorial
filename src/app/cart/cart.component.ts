@@ -9,6 +9,8 @@ import { CartService } from '../cart.service';
 })
 export class CartComponent {
   items = this.cartService.getItems();
+  shippingOption = this.cartService.shippingOption;
+
   checkoutForm = this.formBuilder.group({
     name: '',
     address: '',
@@ -30,11 +32,12 @@ export class CartComponent {
     this.items = this.cartService.removeFromCart(itemIndex);
   }
 
-  getTotalCost() {
-    let totalCost = 0;
+  getSubtotal() {
+    let subtotal = 0;
     this.items.forEach(item => {
-      totalCost+=item.price;
+      subtotal+=item.price;
     });
-    return totalCost;
+    return subtotal;
   }
+
 }

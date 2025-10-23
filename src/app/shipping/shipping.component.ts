@@ -13,4 +13,8 @@ export class ShippingComponent implements OnInit {
       this.shippingCosts = this.cartService.getShippingPrices();
   }
   constructor(private cartService: CartService) {}
+
+  setShippingOption(shippingOption: any) {
+    this.cartService.shippingOption = shippingOption;
+  }
 }

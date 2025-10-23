@@ -7,6 +7,7 @@ import { Product } from './products';
 })
 export class CartService {
   items: Product[] = [];
+  shippingOption = {type: null, price: 0};
 
   addToCart(product: Product) {
     this.items.push(product);
