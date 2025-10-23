@@ -8,3 +8,8 @@
     <span>{{ item.name }}</span>
     <span>{{ item.price | currency }}</span>
 </div>
+
+<form
+    [formGroup]="checkoutForm">
+    <button class="button" type="submit">Purchase</button>
+</form>
