@@ -14,6 +14,7 @@ export class CartComponent {
   checkoutForm = this.formBuilder.group({
     name: '',
     address: '',
+    shipping: this.shippingOption.type,
   })
   
   constructor(
